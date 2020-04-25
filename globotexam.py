@@ -2,9 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from getpass import getpass
 from time import sleep
-from shutil import copyfile
 import platform
 import os
+from shutil import copyfile
 
 
 art = '''   _____ _       _           _   ______
@@ -30,17 +30,13 @@ arch = platform.architecture()[0]
 cwd = os.getcwd()
 
 if system == "Linux":
-    if os.getuid() != 0:
-        print("Run this script with sudo")
-        exit()
-    copyfile(cwd+"/drivers/geckodriver_"+system+"_"+arch, "/usr/bin/geckodriver")
+    os.system("sudo cp "+cwd+"/drivers/geckodriver_"+system+"_"+arch+" /usr/bin/geckodriver")
+    os.system("sudo chmod +x /usr/bin/geckodriver")
     driver = webdriver.Firefox()
 
 elif system == "Darwin":
-    if os.getuid() != 0:
-        print("Run this script with sudo")
-        exit() 
-    copyfile(cwd+"/drivers/geckodriver_"+system, "/usr/bin/geckodriver")
+    os.system("sudo cp "+cwd+"/drivers/geckodriver_"+system+" /usr/bin/geckodriver")
+    os.system("sudo chmod +x /usr/bin/geckodriver")
     driver = webdriver.Firefox()
 
 elif system == "Windows":
