@@ -7,11 +7,20 @@ Clone the repo.
 git clone https://github.com/Atsika/globotexam.git
 pip3 install selenium
 cd globotexam
-```
+```  
+  
+Download the right Firefox driver from the official github repo : https://github.com/mozilla/geckodriver/releases  
+
 Add the Firefox driver to your PATH 🦊  
 
+Linux / OSX :
 ```
-sudo mv geckodriver /usr/bin
+PATH=$PATH:your/driver/path
+```
+
+Windows :  
+```
+$Env:Path += ";c:\your\driver\path"
 ```
 
 ### Usage  
