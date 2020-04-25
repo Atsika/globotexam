@@ -2,8 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from getpass import getpass
 from time import sleep
-
-
+from shutil import copyfile
+import platform
+import os
 
 
 art = '''   _____ _       _           _   ______
@@ -18,14 +19,37 @@ art = '''   _____ _       _           _   ______
             Made with ♥ by Astika & léco.
 '''
 print(art)
-sleep(3)
+sleep(2)
 
-
-
-username = input("Entrez votre username : ")
-password = getpass("Entrez votre password : ")
+username = input("Username : ")
+password = getpass("Password : ")
 url = "https://business.global-exam.com/login"
-driver = webdriver.Firefox()
+
+system = platform.system()
+arch = platform.architecture()[0]
+cwd = os.getcwd()
+
+if system == "Linux":
+    if os.getuid() != 0:
+        print("Run this script with sudo")
+        exit()
+    copyfile(cwd+"/drivers/geckodriver_"+system+"_"+arch, "/usr/bin/geckodriver")
+    driver = webdriver.Firefox()
+
+elif system == "Darwin":
+    if os.getuid() != 0:
+        print("Run this script with sudo")
+        exit() 
+    copyfile(cwd+"/drivers/geckodriver_"+system, "/usr/bin/geckodriver")
+    driver = webdriver.Firefox()
+
+elif system == "Windows":
+    copyfile(cwd+"\\drivers\\geckodriver_"+system+"_"+arch+".exe", cwd+"\\geckodriver.exe")
+    driver = webdriver.Firefox(cwd)
+
+else:
+    print("This script can only run on Linux, Windows or OSX")
+    exit()
 
 driver.get(url)
 sleep(10)
