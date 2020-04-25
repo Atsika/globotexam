@@ -2,13 +2,13 @@
 Bot you Global Exam connection time !
 
 ### Installation
-Clone the repo
+Clone the repo.
 ```
 git clone https://github.com/Atsika/globotexam.git
 pip3 install selenium
 cd globotexam
 ```
-Add the Firefox driver to your PATH 🦊.  
+Add the Firefox driver to your PATH 🦊  
 
 ```
 sudo mv geckodriver /usr/bin
@@ -18,8 +18,8 @@ sudo mv geckodriver /usr/bin
 ```
 python3 globotexam.py
 ```  
-Enter your username  
-Enter your password  
-Enjoy...  
+Enter your username.  
+Enter your password.  
+Enjoy 😉  
 
 Shoutout to **Léco (https://github.com/L-e-c-o/)** for making this script with me ❤️
