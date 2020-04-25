@@ -2,6 +2,7 @@
 Bot you Global Exam connection time !
 
 ### Installation
+Clone the repo
 ```
 git clone https://github.com/Atsika/globotexam.git
 pip3 install selenium
@@ -14,7 +15,9 @@ sudo mv geckodriver /usr/bin
 ```
 
 ### Usage  
-python3 globotexam.py  
+```
+python3 globotexam.py
+```  
 Enter your username  
 Enter your password  
 Enjoy...  
